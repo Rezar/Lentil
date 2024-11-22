@@ -18,8 +18,8 @@
 ## Build
 
 ```bash
-git clone git@github.com:manyuanbin/ggml-on-device.git
-cd ggml-on-device
+git clone git@github.com:Rezar/nanoLLM.git
+cd nanoLLM
 
 # install python dependencies in a virtual environment
 python3.10 -m venv .venv
