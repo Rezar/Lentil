@@ -102,8 +102,6 @@ Run the convert-ckpt-to-ggml.py script to convert the model to ggml format.
 
 ```
 
-This conversion requires that you have python and Tensorflow installed on your computer. Still, if you want to avoid
-this, you can download the already converted ggml models as described below.
 
 
 
