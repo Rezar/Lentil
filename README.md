@@ -68,8 +68,8 @@ cd ../../build/
 ```bash
 # run the GPT-2 small 117M model with q8
 (base) yuanbin.myb@macbookpro build % ./bin/gpt-2-backend -m ../../ggml-on-device/build/models/gpt-2-117M/ggml-model-q8_0.bin -p "How is Boston"
-main: seed = 1732260396
-gpt2_model_load: loading model from '../../ggml-on-device/build/models/gpt-2-117M/ggml-model-q8_0.bin'
+main: seed = 1732311145
+gpt2_model_load: loading model from '../models/gpt-2-117M/ggml-model-q8.bin'
 gpt2_model_load: n_vocab = 50257
 gpt2_model_load: n_ctx   = 1024
 gpt2_model_load: n_embd  = 768
@@ -85,25 +85,25 @@ gpt2_model_load: model size  =   128.64 MB
 extract_tests_from_file : No test file found.
 test_gpt_tokenizer : 0 tests failed out of 0 tests.
 main: compute buffer size: 9.47 MB
-main: prompt: 'How is Boston'
-main: number of tokens in prompt = 3, first 8 tokens: 2437 318 6182 
+main: prompt: 'How is Boston?'
+main: number of tokens in prompt = 4, first 8 tokens: 2437 318 6182 30 
 
-How is Boston?"
+How is Boston?
 
-"Boston, you can do a lot more."
+There are many questions about Boston, but I'd like to start with one of the most important ones.
 
-The question came in the midst of a series of tweets from the Boston Globe that were both funny and in need of a response. One was from Matt Zoller Seitz:
+Why didn't Boston do a better job of preparing for the World Cup than at home?
 
-"What's up with Boston? You're here, aren't you? I know I should give you a break, because I love you. You're doing what you do."
+The American teams lost three matches, including an impressive 2-1 win in the final. Boston did well in both, but the home series was much tighter.
 
-Another, a direct quote from a New York Times op-ed by Boston Mayor Marty Walsh, was from another, more subdued source:
+There were two goals in the World Cup, two in Brazil, and two in China. What was your impression of these teams, what was your favorite?
 
-"I don't understand. You are right. We are here because of what you are doing. You are the best that you can be. You are a true patriot. You are a true human being. This is not about who you are. This is about who we are. This is not just a place. This is about all of us. This is a city that has been built on the
+I like the Brazilian teams. I like the U.S. teams, but I didn't like the U.S. team. I thought the U.S. teams were too good. They had an outstanding defense, and they had a solid goal scorer. They had a great team, but they were slow in the beginning. I think that was something that was kind of a surprise. I think it was more of an expectation for
 
-main:     load time =   210.87 ms
-main:   sample time =    32.18 ms
-main:  predict time =  1623.66 ms / 8.04 ms per token
-main:    total time =  1871.03 ms
+main:     load time =   140.10 ms
+main:   sample time =    21.43 ms
+main:  predict time =   762.94 ms / 3.76 ms per token
+main:    total time =   926.81 ms
 
 ```
 
