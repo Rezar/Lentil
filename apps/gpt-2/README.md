@@ -96,10 +96,6 @@ models/gpt-2-117M/model.ckpt.meta                 100%[=========================
 models/gpt-2-117M/vocab.bpe                       100%[=============================>] 445.62K   799KB/s    in 0.6s
 Done! Model '117M' saved in 'models/gpt-2-117M/'
 
-Run the convert-ckpt-to-ggml.py script to convert the model to ggml format.
-
-  python /Users/john/ggml/examples/gpt-2/convert-ckpt-to-ggml.py models/gpt-2-117M/ 1
-
 ```
 
 
