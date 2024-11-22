@@ -22,7 +22,8 @@ git clone git@github.com:Rezar/nanoLLM.git
 cd nanoLLM
 
 # install python dependencies in a virtual environment
-python3.10 -m venv .venv
+cd ./apps/gpt-2
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
@@ -32,8 +33,37 @@ cmake ..
 cmake --build . --config Release -j 8
 ```
 
+## Model Quantization
+
+- Download model 
+```
+./download-model.sh 117M
+```
+
+- Convert checkpoint to ggml model
+```
+python convert-ckpt-to-ggml.py ../../models/gpt-2-117M/ 1
+```
+
+- Quantize model (fp16 -> q8, quantize to q4 can get bad performance)
+```
+cd ../../build/
+./bin/gpt-2-quantize ../models/gpt-2-117M/ggml-model-f16.bin ../models/gpt-2-117M/ggml-model-q8.bin 7
+```
+
+- Check the models
+```
+240M	models/gpt-2-117M/ggml-model-f16.bin
+ 70M	models/gpt-2-117M/ggml-model-q4_0.bin
+ 78M	models/gpt-2-117M/ggml-model-q4_1.bin
+ 70M	models/gpt-2-117M/ggml-model-q4_k.bin
+129M	models/gpt-2-117M/ggml-model-q8_0.bin
+240M	models/gpt-2-117M/ggml-model.bin
+```
+
+
 ## GPT-2 inference
->**Note**: The throughput on my laptop is quite good, achieving <u>**_8.04_**</u> ms per token. 
+>**Note**: The throughput on my laptop is quite good, achieving <u>**_3.76_**</u> ms per token. 
 
 ```bash
 # run the GPT-2 small 117M model with q8
@@ -77,18 +107,6 @@ main:    total time =  1871.03 ms
 
 ```
 
-## Model Quantization
-
-**How do you quantize a model? Reach out to  [Yuanbin](mailto:ybinman@bu.edu)!**
-
-```
-240M	models/gpt-2-117M/ggml-model-f16.bin
- 70M	models/gpt-2-117M/ggml-model-q4_0.bin
- 78M	models/gpt-2-117M/ggml-model-q4_1.bin
- 70M	models/gpt-2-117M/ggml-model-q4_k.bin
-129M	models/gpt-2-117M/ggml-model-q8_0.bin
-240M	models/gpt-2-117M/ggml-model.bin
-```
 
 
 ## Compiling for Android
